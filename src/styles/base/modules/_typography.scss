@@ -15,6 +15,7 @@ p, div, a, span, label{
 
 p{
     margin-bottom: 1em;
+    line-height: 1.35;
     
     &:not(:first-child){
         margin-top: 1em;

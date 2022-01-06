@@ -1,12 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
 
 const routes = [
     {
         path: '/',
-        name: 'Home',
-        component: Home
+        redirect: '/attractions'
     },
+    {
+        path: '/attractions',
+        redirect: '/attractions/rollercoasters'
+    },
+    {
+        path: '/attractions/:attractionType',
+        name: 'AttractionsOverview',
+        component: () => import(/* webpackChunkName: "attractions" */ '@/views/Attractions/Overview.vue')
+    },
+    {
+        path: '/attractions/:attractionType/:attractionId',
+        name: 'AttractionDetail',
+        component: () => import(/* webpackChunkName: "attractions" */ '@/views/Attractions/Detail.vue')
+    }
 ]
 
 const router = createRouter({
