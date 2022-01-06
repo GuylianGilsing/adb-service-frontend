@@ -1,0 +1,23 @@
+$element-information-table-class-name: '.information-table';
+
+#{$element-information-table-class-name}{
+    border: solid 0.125em $color-black;
+
+    &__row{
+        padding: 0.4em 1em;
+
+        &:not(:last-child){
+            border-bottom: solid 0.125em $color-black;
+        }
+    }
+
+    &__title{
+        padding: 0.4em 1em;
+        font-size: $font-size-text;
+        font-weight: $font-weight-semi-bold;
+        
+        &:not(:last-child){
+            border-bottom: solid 0.125em $color-black;
+        }
+    }
+}

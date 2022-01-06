@@ -1,0 +1,9 @@
+.grid{
+    display: grid;
+    
+    &--attractions{
+        padding: 2.5em 0;
+        gap: 3em;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

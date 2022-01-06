@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <clipPath id="clip-image">
+      <rect width="256" height="256"/>
+    </clipPath>
+  </defs>
+  <g id="image" clip-path="url(#clip-image)">
+    <rect width="256" height="256"/>
+    <text id="Placeholder" transform="translate(79 135)" fill="#fff" font-size="18" font-family="SegoeUI-Bold, Segoe UI" font-weight="700"><tspan x="0" y="0">Placeholder</tspan></text>
+  </g>
+</svg>
