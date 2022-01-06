@@ -29,6 +29,7 @@
                         :description="rollerCoaster.description"
                     />
                 </div>
+                <p v-if="!preloaders.attractions && attractions.rollerCoasters.length == 0" class="txt--align-center">No RollerCoasters found</p>
             </div>
         </section>
     </main>
