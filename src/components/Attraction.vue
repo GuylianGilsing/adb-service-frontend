@@ -25,7 +25,10 @@ export default {
     mounted()
     {
         if(typeof this.$props.image == 'string' && this.$props.image.length > 0)
+        {
             this.$data.imgSrc = this.$props.image;
+            console.log(this.$data)
+        }
     }
 }
 </script>
