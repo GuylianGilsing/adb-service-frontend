@@ -1,0 +1,29 @@
+$component-search-bar-class-name: '.search-bar';
+
+#{$component-search-bar-class-name}{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__input{
+        width: 100%;
+        padding: 0.8em 1em;
+        color: $color-black;
+        border: none;
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+    }
+
+    &__btn{
+        flex-grow: 1 0 auto;
+        display: block;
+        border-radius: 0;
+        border-top-right-radius: 1em;
+        border-bottom-right-radius: 1em;
+    }
+
+    &--large{
+        max-width: 750px;
+        margin: 0 auto;
+    }
+}
