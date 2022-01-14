@@ -1,10 +1,9 @@
 import request from "./../functions/Request";
 import AxiosClient from "./clients/AxiosClient";
+import SearchURLCreator from "../functions/SearchURLCreator";
 
 export default class RollerCoasterService
 {
-    _errors = [];
-
     async getAll()
     {
         const [response, error] = await request(AxiosClient.get(`/rollercoaster`));
@@ -29,39 +28,29 @@ export default class RollerCoasterService
         return response.data;
     }
 
-    async create(rollerCoaster)
+    async search(name = "", park = "")
     {
-        const [response, error] = await request(AxiosClient.post(`/rollercoaster`, JSON.stringify(rollerCoaster)));
+        const searchURL = this._createSearchURL(name, park);
+        const [response, error] = await request(AxiosClient.get(`/rollercoaster/search/${searchURL}`));
 
         if(error !== null || (response !== null && response.status !== 200))
         {
-            return null;
+            return [];
         }
 
         return response.data;
     }
 
-    async update(rollerCoaster)
+    _createSearchURL(name = "", park = "")
     {
-        const [response, error] = await request(AxiosClient.put(`/rollercoaster/${rollerCoaster.id}`, JSON.stringify(rollerCoaster)));
+        SearchURLCreator.clear();
 
-        if(error !== null || (response !== null && response.status !== 200))
-        {
-            return null;
-        }
+        if(name.length > 0)
+            SearchURLCreator.append("name", name);
 
-        return response.data;
-    }
+        if(park.length > 0)
+            SearchURLCreator.append("park", park);
 
-    async delete(id)
-    {
-        const [response, error] = await request(AxiosClient.delete(`/rollercoaster/${id}`));
-
-        if(error !== null || (response !== null && response.status !== 200))
-        {
-            return false;
-        }
-
-        return true;
+        return SearchURLCreator.get();
     }
 }
